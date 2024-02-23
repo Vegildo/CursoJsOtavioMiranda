@@ -1,0 +1,7 @@
+e.preventDefault()
+		const name = form.querySelector(".name");
+		const lastname = form.querySelector(".lastname");
+		const weight = form.querySelector(".weight");
+		const height = form.querySelector(".height");
+
+		console.log(name, lastname, weight, height);

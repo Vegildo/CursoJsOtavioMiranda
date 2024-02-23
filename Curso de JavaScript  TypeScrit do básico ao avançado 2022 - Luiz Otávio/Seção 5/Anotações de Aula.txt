@@ -1,0 +1,167 @@
+                                                 Anotações da seção 5
+----------------------------------------------------------------------------------------------------------
+
+
+	Aula 81
+----------------------
+
+ - Revisão array: 
+
+	Rest x Spread, Quando queremos pegaro rest usaremos o rest, quando queremos espalhar,
+ pegar os dados que estao dentro do array por ex e abri-los, esplha-los
+
+	length n usa parenteses pois é um atributo do array e n um método.
+
+	Pop() X Shift(), pop remove o ultimo elemento e shift o primeiro.
+
+	Push() x Unshift(), push adiciona no final e unsift no inicio.
+
+	Shift() x Unshift(), os dois mudam a ordem dos index do seu array, q em casos grandes,
+ podem ocasionar problemas de performace.
+
+	Split(), O Split é usado para dividir uma string em pequenos pedaços. Para isso, seu
+ método retorna um array de strings, contendo as respectivas partes, definidas de acordo com
+ a string passada como parâmetro, que na verdade funciona como o “agente” divisor da mesma.
+ Sintaxe => str.split([separator[, limit]]) --> [, limit] é opicional.
+	
+	Join(), O método join() junta todos os elementos de um array(ou um array-like
+ object) em uma string e retorna esta string.
+ Sintaxe => arr.join([separador = ','])  --> [separador = ','] é opicional.
+
+
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+
+
+	Aula 82
+----------------------
+
+ - Método Splice:
+
+	O método splice() altera o conteúdo de uma lista, adicionando novos elementos enquanto
+ remove elementos antigos.
+ Sintaxe =>	array.splice(indice[, deleteCount[, elemento1[, ...[, elementoN]]])
+		array.splice(indice) // SpiderMonkey/Firefox extension
+
+
+
+	Aula 83
+----------------------
+
+ - Concatenando Arrays:
+
+	array.concat(array1, array2, array3, arrayN);
+	... => spread operator  (Vem de espalhar)
+	array = [...array1, ...array2, ...array3, ...arrayN];
+
+
+
+	Aula 84
+----------------------
+
+
+ - Filter:
+	
+	O método filter() é um recurso que permite fazer a filtragem de elementos com
+ apenas poucas linhas de comandos.
+	
+	O método filter() cria um novo array com todos os elementos que passaram no teste
+ implementado pela função fornecida.	
+Sintaxe => var newArray = arr.filter(callback[, thisArg]) --> [, thisArg] é opicional.
+		
+	OBS:
+ 	string.toLowerCase() => retorna toda a string em número minúsculo
+	string.endsWith("o") => retorna a string q terminar com a letra escolhida, no caso "o" 
+	
+
+
+
+	Aula 85
+----------------------
+
+ - Map:
+	
+	O método map() é invocado a partir de um array e recebe como parâmetro uma função de
+ callback, que é invocada para cada item e retorna o valor do item equivalente no array
+ resultante. No exemplo acima, por exemplo, essa função de callback retorna o número original
+ elevado ao quadrado.
+	
+	O método map() invoca a função callback passada por argumento para cada elemento do
+ Array e devolve um novo Array como resultado.
+
+	Sintaxe => arr.map(callback[, thisArg]) --> [, thisArg] é opicional.
+
+
+
+
+
+
+	Aula 86
+----------------------
+
+
+ - Reduce:
+	
+	O método reduce() executa uma função reducer (fornecida por você) para cada elemento
+ do array, resultando num único valor de retorno.	
+	
+	A função reducer recebe quatro parâmetros:
+		Acumulador (acc)
+		Valor Atual (cur)
+		Index Atual (idx)
+		Array original (src)
+
+	O valor de retorno da sua função reducer é atribuída ao acumulador. O acumulador,
+ com seu valor atualizado, é repassado para cada iteração subsequente pelo array, que por fim,
+ se tornará o valor resultante, único, final.	
+
+Sintaxe => array.reduce(callback( acumulador, valorAtual[, index[, array]] )[, valorInicial])
+
+
+
+
+
+	Aula 88
+----------------------
+
+
+ - ForEach:
+	O método forEach é usado para percorrer arrays, mas usa uma função de modo diferente
+ do "laço for" tradicional. O método forEach passa uma função de callback para cada elemento
+ do array juntamente aos seguintes parâmetros:
+ Valor atual (obrigatório) - O valor do elemento atual do array.
+
+	O método forEach() executa uma dada função em cada elemento de um array.
+
+Sintaxe => arr.forEach(callback(currentValue [, index [, array]])[, thisArg]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

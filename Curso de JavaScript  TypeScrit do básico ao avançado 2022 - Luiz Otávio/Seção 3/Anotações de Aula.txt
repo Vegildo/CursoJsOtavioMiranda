@@ -1,0 +1,399 @@
+                                                 Anotações da seção 3
+----------------------------------------------------------------------------------------------------------
+
+	Aula 37
+----------------------
+
+
+ OPERADORES DE COMPARAÇÃO:
+	>   Maior que
+	>=  Maior que ou igual a
+	<   Menor que
+	<=  Menor que ou igual a
+	==  Igualdade (valor) ***não utilizado
+	=== Igualdade estrita (valor e tipo)
+	!=  Diferente (valor) ***não utilizado
+	!== Diferente estrito (valor e tipo)
+
+
+
+	Aula 38
+----------------------
+
+
+ OPERADORES LÓGICOS:
+	&&   AND = E   = Todas as expressões precisam ser verdadeiras para retornar true
+	||   OR  = OU  = Todas as expressões precisam ser falsas para retornar false
+	!    NOT = NÃO = Inverte uma expressão. 
+
+
+
+	Aula 39
+----------------------
+
+
+ OPERADORES LÓGICOS:
+	&&   false && true = vai retornar "o valor (mesmo) falso"
+	||   true && false = vai retornar "o valor (mesmo) verdadeiro"
+
+ Em JS td pode ser avaliado. Ou em verdadeiro ou em falso.
+
+ Ele retorna o valor q está no falso, os comumente chamados falsy.
+
+ Falsy - false value:
+	false
+	0
+	String vazia ("",''  ou ``)
+	null / undefined
+	NaN
+
+ Então podemos criar condicionais so usando os operadores lógicos diretamente, sem if e etc...
+
+ Em &&, se tds forem avaliadas verdadeiras, o JS retorna somente a ultima falsa. 
+ Em ||, se tds forem avaliadas falsas, o JS retorna somente a ultima verdadeira.
+
+
+
+	Aula 45
+----------------------
+
+
+ OPERAÇÃO TERNÁRIA:
+	(condição) ? (Valor para verdadiro) : (Valor para falso) // Lembrando que os parenteses
+ são opcionais. 
+
+
+
+	Aula 46
+----------------------
+
+
+ FUNÇÕES CONSTRUTORAS:
+	Começam sempre com letra maiúscula e normalmente usamos o new pra criar uma nova
+ 
+ 
+ https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date
+ Ex: const data = new Date(0); // 0 = ao marco zero, data do timestamp unix 
+ ou época unix (01/07/1970). Se quisermos uma data anterior usamos um valor negativo, 
+ e uma data superior usamos um valor positivo. Lemrabdo q o valor está em milésimo de segundos.
+ Ex2: const date = new Date(2019, 3, 20, 15, 14, 27, 1000);
+ // new Date(Ano, Mês, Dia, Hora, Min, Sec, MilésimoSec), tds os omitidos serão dadas
+ o valor default de zero. Trabalhando dessa maneira temos q tr pelo menos 2 parâmetros! 
+
+	 
+
+	Aula 47
+----------------------
+
+ 
+ Switch/case:
+	Ex: switch (valor a ser condicioando, checado) {
+		case 0:
+			//O q fazer nesse caso
+			break; //Stop - Para  
+		case 1:
+			//O q fazer nesse caso
+			break //Stop - Para  
+		case 2:
+			//O q fazer nesse caso
+			break; //Stop - Para  
+		case 3:
+			//O q fazer nesse caso
+			break; //Stop - Para  
+...
+		default: //funciona como um else final (para tds
+ os casos q estão fora dos casos categorizados anteriormente nos "case")
+			//O q fazer no caso genérico
+			break; // Opcional, no default n precisa colocar.
+	    } 
+
+	 
+
+	Aula 47
+----------------------
+
+ 
+ Ex: 
+     HTML:
+	   <section class="container">
+		<h1>Título</h1>
+	   </section>
+
+	   </section src="./main.js"></section>
+     
+     JS:
+	   const h1 = document.querySlector('.container h1');
+	   h1.innerHYML = '';
+ 
+ No exemplo mostramos como apagar algo escrito dentro da tag h1 usando a ref de
+ css '.container h1', onde .container é a classe do elemento pai, section,
+ e h1 é a tag filha.
+
+
+
+	Aula 49
+----------------------
+
+
+ Diferenças ntre let/var/const:
+	- Let tem escopo de bloco. bloco é td q está entre chaves {...bloco}
+	- Var só tem escopo de função. Toda vez q for usada ela será redeclarada,
+ somente dentro de uma função. 
+	*Funçao é um bloco especial*
+	*A função sabe do seu entorno*
+	- Hoisting:
+		- Elevação
+		- É um comportamento do JavaScript de mover declarações
+ para o topo de um escopo (o escopo global ou da função em que se encontra).
+	- Var e function usam hoisting, com let e const já n usa.	
+
+
+
+	Aula 50
+----------------------
+
+
+
+ Atribuição via desestruturação [ARRAYS]:
+	Ex:
+		const num = [1, 2, 3];
+		[a, b, c] = num;
+
+	Dessa forma estamos atribuindo para cada índice da lista num,
+ um valor de alguma variável.
+	- ... => quando suado apra epgar o restod e uma lista por ex é chamado de rest
+ Mas quando usado no sentido de espalhar;dstribuir algo spread
+
+
+
+
+	Aula 51
+----------------------
+
+
+ Atribuição via desestruturação {Objetos}:
+	Ex:
+		const people = {
+			nome: 'Luiz',
+			sobrenome: 'Miranda',
+			idade: 40,
+			endereço: {
+				rua: 'Av. Brasil',
+				numero: 450,
+			}
+		};
+		const { nome } = pessoa;
+
+	Dessa forma estamos passando o objeto e estamos falando: Olha, extrai
+ desse objeto essa chave aqui, chamada nome. E já cria tb uma variável que tb tenha o
+ mesmo nome, nesse caso especifico. Pois podemos dar outro nome tb.
+
+
+
+	Aula 54
+----------------------
+
+
+ DOM:
+	O Modelo de Objeto de Documento (DOM) é uma interface de programação para
+ documentos HTML, XML e SVG . Ele fornece uma representação estruturada do documento
+ como uma árvore. O DOM define métodos que permitem acesso à árvore, para que eles
+ possam alterar a estrutura, estilo e conteúdo do documento. O DOM fornece uma
+ representação do documento como um grupo estruturado de nós e objetos, possuindo
+ várias propriedades e métodos. Os nós também podem ter manipuladores de eventos que
+ lhe são inerentes, e uma vez que um evento é acionado, os manipuladores de eventos
+ são executados. Essencialmente, ele conecta páginas web a scripts ou linguagens de
+ programação. 
+ 	Embora o DOM seja frequentemente acessado usando JavaScript, não é uma parte
+ da linguagem JavaScript. Ele também pode ser acessado por outras linguagens.
+
+ API do DOM é uma intrface de objetos q me permitem manipular os elementos d dntro da
+ página (document).
+
+
+	Aula 55
+----------------------
+
+
+ For in:
+	Lê os índices ou chaves do objeto
+ Ex:
+	const fruits = ["Pera", "Uva", "Maça"];
+	for (i in fruits) {
+		console.log(fruits[i]);
+	}
+ Que é igual a:
+	const fruits = ["Pera", "Uva", "Maça"];
+	for (let i = 0; i < fruits.length; i++) {
+		console.log(fruits[i]);
+	}
+ OBS:
+	Ex2:
+		console.log(people.name);
+		const key = "name";
+		console.log(pessoa[key]); //retorna o valor
+    		console.log(pessoa.key);  //retorna undefined
+		// Devemos acessar o valor na chave de um objeto da mesma forma que
+ acessamos em um array utilizando o índice. 
+	Explicação:
+		 key é uma variável, não uma chave do objeto pessoa. Usamos a notação
+ de colchetes para que o JS converta o valor da variável na chave que desejados em
+ tempo de execução. Não existe "key" dentro do objeto, existe o valor que a variável
+ key tem no momento do loop.
+
+
+	Aula 56
+----------------------
+
+
+ For of:
+	Ex:
+		const nome = "Ramon Braga";
+		for (let i = 0; i < nome.length; i++) {
+			console.log(nome[i]);
+		}
+	Que é igual a:
+		const nome = "Ramon Braga";
+		for (let value of nome) {
+			console.log(value);
+		}
+
+ For clássico -> Geralmente com iteráveis (array ou strings)
+ For in -> Retorna o índice ou chave (string, array ou objetos)
+ For of -> Retorna o valor em si (iteráveis, arrays ou strings)
+
+
+
+	Aula 57
+----------------------
+
+ NodeList:
+	Não é um array, porém se comporta de maneira extremamente similar a um.
+	Então, for's funcionam, a maneira de chamar um um valor especifico dentro
+ de um array tb funciona, métodos dos arrays como length, tb funcionam dentre outros.
+
+ NodeList X CSS:
+	Muito útil poder estilizar o HTML usando JS, mas o estilo fica computado na tag,
+ isso não é uma prática ruim? O ideal não é que o estilo da página fique só no arquivo
+ do CSS?
+	Resposta:
+		Toda lib que estiliza a página usando JS, vai usar este mesmo recurso...
+ 	Nunca foi, nem nunca será uma má prática. Porém, se você fizer isso na mão,
+ aí sim eu poderia pensar no assunto... Com tantos recursos para adicionarmos estilos,
+ se a pessoas adicionar via atributos HTML seria o fim... É super complicado, super
+ desorganizado e ainda é super difícil de manter.
+ Mas via JS vai ser assim mesmo...
+ Uma coisa para se ter em mente... O atributo style tem especificidade mais alta
+ que qualquer especificada CSS, ok? Para sobrescrever ele, somente com !important...
+ Se for algo temporário, tipo, usuário clica num botão, você adiciona um estilo
+ temporariamente, sem problemas... Se for permanente, use CSS mesmo.
+
+ CSS / JS:
+	O que muda em ccs pra js é que onde tem hífen pra camelCase
+	CSS: background-color, JS: backgroundColor
+ 
+
+	Aula 58
+----------------------
+
+
+ while/do while:
+	while (variável de controle) {
+		//Código
+		variável de controle ++ // Nunca esquercer de acrecentar pois se não
+ 					//o laço será infinito, logo nunca parará.
+ 	}
+
+	do {
+		//Código
+		variável de controle ++ // Nunca esquercer de acrecentar pois se não
+ 					//o laço será infinito, logo nunca parará.
+	} while (variável de controle)
+
+ Do 
+
+
+
+	Aula 59
+----------------------
+
+
+ break/continue:
+	O break e continue nos dá o controle de quando queremos pular um elemento
+ dentro do iterável/array. Ou quebrar o laço de repetiçao no momento que quisermos
+	continue -> continua para p´roxima iteração
+	break -> sai do laço
+
+
+
+
+	Aula 63
+----------------------
+
+
+ try/catch/throw:
+	try {
+		bloco de cód; //É executado quando n há erros
+	} catch(erro) {
+		Bloco de cód do q fazer, se o bloco no try tiver com um erro;
+		//É executado quando há erros
+	} finally {
+		//Sempre é executada, com erro ou sem.
+	}
+	
+	
+
+
+
+	Aula 67
+----------------------
+ 
+ - Sempre tente modular seu algoritmo, dessa forma ele pode ser reutilizado 
+   ou mudado mais facilmente.
+
+ - Usando document.querySelector(".classNOME ou #idNOME") teremos o elemento.
+
+ - Usando document.getElementsByClassName("classNOME") teremos um array, logo teremos
+   q colocar [i], onde i é igual ao index da ordem do elemento q vc quer usar. 
+
+ - const inputTask = document.getElementsByClassName("input-task")[0]; 
+   inputTask.focus(); // comanda o js para fazer um vento de focus, sendo focus o evento
+   quando o cursor esta no input piscando, como quando está apto para digitar.
+
+ - como apartir de um elemnto, exemplo um button, eu acesso o pai dele?
+   Utilizando parentElement, Ex: button.parentElement // sendo button alguma variavel
+   onde alocamos um elemento
+
+ - E se quisermos remove-lo? So usar remove(), Ex: button.parentElement.remove()
+
+ - Remover um texto de um elemento. Eu posso fazer um replace() do texto por nada, ''.
+   E o trim() remove o espaço adicionado.
+   	Ex:let taskTxt = t.innerText;
+   	taskTxt = taskTxt.replace('Deltar', '').trim()
+	
+ -JSON é um formato d texto que a gnt utiliza para salvar dados entre sistemas
+  JSON, que significa JavaScript Object Notation, o formato é utilizado para estruturar
+  dados em formato de texto e permitir a troca de dados entre aplicações de forma
+  simples, leve e rápida.
+
+ -JSON.stringify(valor) é um JSON em string, fincando mais facil converter de volta em
+  um array por exemplo.
+                           key    Value
+ - localStorage.setItem('string', valor). cria uma mini base de dados no navegador. 
+ 'string' será o nome usado pra dps recuperar o valor salvo (key). E o valor tem q ser
+  dados em formato string (Value).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+url de conexão:
+
+	Project: project0
+
+	Cluster: leovv
+	
+	usuário: leo
+
+	senha: 1210
+
+	instalar o driver:  npm i mongodb
+
+	Adicione sua string de conexão ao código do aplicativo: 
+		mongodb+srv://leo:1210@leovv.insh30a.mongodb.net/?retryWrites=true&w=majority
+

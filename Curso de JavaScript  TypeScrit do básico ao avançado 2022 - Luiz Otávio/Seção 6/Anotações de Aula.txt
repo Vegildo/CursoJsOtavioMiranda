@@ -1,0 +1,274 @@
+                                          Anotações da seção 6
+----------------------------------------------------------------------------------------------------------
+
+
+	Aula 89
+----------------------
+
+ - Revisão Objetos:
+
+	A linguagem JavaScript é projetada com base em um simples paradigma orientado a objeto.
+ Um objeto é uma coleção de propriedades, e uma propriedade é uma associação entre um nome (ou
+ chave) e um valor. Um valor de propriedade pode ser uma função, que é então considerada um
+ método do objeto.
+
+	Forma com contrutor:
+ const <name> = new Object();
+ PALAVRA NEW:
+ Palavra new atrela o this ao objeto, ou seja, {} <- this;
+ E implicitamente deixando um return this na função, ou seja, {} <- this -> {...};
+
+	Forma literal: const <Name> = {key1: value1, key2: value2, keyN: valueN}
+ Quando o valor é uma função, ela é chamada de método. E sua vantagem é vc ter acesso as
+ propriedades e dos valores do objeto em seu método.
+
+	Podemos acessar um valor utilizando a nomeclatura:
+ Objeto.key; ou Objeto['key'];
+	Na forma de conchete é possivel acessar a chave de forma indireta, como:
+ const chave = "<key>";
+ Object[chave] => Correto
+ Object.chave => Errado 
+	
+	
+
+	Aula 90
+----------------------
+
+ - defineProperty:
+	
+	O método Object.defineProperty() define uma nova propriedade diretamente em um objeto,
+ ou modifica uma propriedade já existente em um objeto, e retorna o objeto.
+
+	Sintaxe => Object.defineProperty(obj, prop, descriptor)
+
+	OBS:
+ Você invoca este método diretamente no construtor do Object ao invés de invocar
+ em uma instância do tipo Object.
+
+ - defineProperties:
+
+	O método Object.defineProperties() define uma nova propriedade ou modifica
+ uma existente no objeto, retornando o objeto.
+
+	Sintaxe => Object.defineProperties(obj, props)
+
+	
+
+
+	Aula 92
+----------------------
+
+ - métodos úteis para objetos:
+
+	Object.values:
+
+ O método Object.values() retorna um array com os valores das propriedades de um dado objeto,
+ na mesma ordem provida pelo for...in laço (sendo a diferença que o laço for-in também
+ enumera as propriedades na cadeia prototype).
+
+ Sintaxe => Object.values(obj)
+
+
+	Object.entries:
+ 
+ O método Object.entries() retorna uma array dos próprios pares [key, value] enumeráveis de
+ um dado objeto, na mesma ordem dos objetos providos através do loop for...in 
+ (sendo a diferença que o for-in loop enumera também propriedades dispostas na cadeia
+ de prototipagem - prototype chain).
+
+ Sintaxe => Object.entries(obj)
+
+
+	Object.assign(des, any):
+ 
+ O método Object.assign() é usado para copiar os valores de todas as propriedades próprias
+ enumeráveis de um ou mais objetos de origem para um objeto destino. Este método irá retornar
+ o objeto destino.
+
+ Sintaxe => Object.assign(destino, ...origens); 
+ destino=>O objeto destino.
+ origens=>Um ou mais objetos de origem.
+ 
+
+	Object.getOwnPropertyDescriptor(o, 'prop'):
+
+ O método Object.getOwnPropertyDescriptor() retorna um descritor de propriedades para uma
+ propriedade (isto é, uma diretamente presente, e não pertencente ao objeto por força da
+ cadeia de protótipo do objeto) de um dado objeto. 
+
+ Sintaxe => Object.getOwnPropertyDescriptor(obj, prop)
+
+
+	...(spread):
+
+ Sintaxe de Espalhamento (Spread syntax) permite que um objeto iterável, como uma expressão
+ de array ou uma string seja expandido para ser usado onde zero ou mais argumentos
+ (para chamadas de funções) ou elementos (para arrays literais) são esperados, ou que um
+ objeto seja expandido onde zero ou mais pares propriedade:valor (para objetos literais)
+ são esperados.
+
+ Sintaxe =>
+
+ Para chamada de funções:
+ myFunction(...iterableObj);
+
+ Para arrays literais ou strings:
+ [...iterableObj, '4', 'five', 6];
+
+ Para objetos literais (novo em ECMAScript 2018; stage 3 draft):
+ let objClone = { ...obj };
+
+
+
+
+	Aula 93
+----------------------
+
+ - Prototypes:
+
+	Protótipos são o mecanismo pelo qual objetos JavaScript herdam recursos uns
+ dos outros.
+	 O JS é baseado em protótipos para passar propriedades e métodos de um objeto
+ para outro. Protótipo é o termo usado para se referir ao que foi criado pla primeira vez,
+ servindo de modelo ou molde para futuras produções. Todos os objetos tem uma referência
+ interna para um protótipo (__proto__) que vem da propriedade prototype da função construtora
+ que foi usada para criá-lo. quando tentamos acessar um membro de um objeto e depois a cadeia
+ de protótipos é usada até o topo (null) até encontrar (ou não) tal membro.
+
+
+ - OBS:
+	
+	Função construtora é um molde, e esse molde gera novos objetos. Igual a uma classe.
+ Essa ação de gerar novos objetos, nós em JS chamamos de instânciação (criar instâncias).
+ 
+
+
+	Aula 94
+----------------------
+
+ - Manipulando prototypes:
+ 
+	Não acesse as protos utilizando __proto__ pois a chance de ter problema de performace
+ é grande. Utilze sempre Object.getPrototypeOf(). E para setar utilize Object.setPrototypeOf().
+
+	O método Object.getPrototypeOf() retorna o prototype (isto é, o valor da propriedade
+ interna [[Prototype]]) do objeto especificado.
+
+ Sintaxe => Object.getPrototypeOf(obj)
+
+	O método Object.setPrototypeOf() configura o 'prototype' (i.e., a propriedade interna
+ [[Prototype]]) de um objeto específico para outro objeto ou null.
+
+
+ Sintaxe => Object.setPrototypeOf(obj, prototype);
+
+	O método Object.create() cria um novo objeto, utilizando um outro objeto existente
+ como protótipo para o novo objeto a ser criado.
+
+ Sintaxe => Object.create(proto[, propertiesObject]) 
+
+
+
+	Aula 95
+----------------------
+
+
+ - Herança:
+
+	O termo "Herança" é muito usado para descrever que as características de um objeto são
+ passadas para outro objeto. Assim como uma filha ou filho pode herdar características da sua
+ mãe ou pai (geneticamente). Por isso estamos usando esse termo para descrever o comportamento
+ desejado. Além disso, a maioria das literaturas, incluindo as documentações (como MDN) citam
+ a palavra herança.
+
+	Vamos continuar usando o termo "Herança" até o final do curso, porém, Javascript não é
+ uma linguagem que apresenta essa característica em específico, portanto não existe "herança"
+ aqui. O que ocorre, na verdade, é "delegação". Esse seria o termo mais correto para descrever
+ "Herança" em JS.
+
+
+
+
+	Aula 99
+----------------------
+
+ - Polimorismo:
+
+	Definimos Polimorfismo como um princípio a partir do qual as classes derivadas de uma
+ única classe base são capazes de invocar os métodos que, embora apresentem a mesma assinatura,
+ comportam-se de maneira diferente para cada uma das classes derivadas.
+
+	O Polimorfismo é um mecanismo por meio do qual selecionamos as funcionalidades utilizadas
+ de forma dinâmica por um programa no decorrer de sua execução.
+
+	Com o Polimorfismo, os mesmos atributos e objetos podem ser utilizados em objetos
+ distintos, porém, com implementações lógicas diferentes.
+
+
+
+	Aula 100
+----------------------
+
+ - Composição/Mixins:
+
+	É quando podemos reunir várias funções em uma – onde a mesma recebe um número variado
+ de funções por parâmetro, e dentro dela é usado o resultado de uma como entrada da outra.
+ 
+
+
+	Aula 101
+----------------------
+
+ - Map():
+
+	Faz parte do conjunto de métodos disponíveis na linguagem para a manipulação de
+ objetos do tipo array. Ele funciona como uma estrutura de repetição, pois percorre todos os
+ elementos do array, executa determinada ação e retorna um novo conteúdo. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

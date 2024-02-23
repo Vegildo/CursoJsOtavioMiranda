@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap");
+
+:root {
+	--primary-color: #20a0b1a9;
+	--secondary-color: #ced6e5;
+	--tercenary-color: #9aa0ab;
+	--write-color: #2b364a;
+	--red-color: #eb2115;
+}
+
+* {
+	box-sizing: border-box;
+	outline: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: var(--primary-color);
+	color: var(--write-color);
+	font-family: "Open sans", sans-serif;
+	font-size: 1.3em;
+	line-height: 1.5em;
+}
+
+.container {
+	background: var(--secondary-color);
+	max-width: 700px;
+	margin: 75px auto;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.clock {
+	font-size: 3em;
+	margin: 0.4em 0;
+}
+
+.buttons {
+	margin: 0.4em 0; /*background-color: #4CAF50;  Green */
+}
+
+button {
+	background-color: var(--primary-color);
+	border: none;
+	color: var(--write-color);
+	padding: 15px 30px;
+	margin-top: 13px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 4px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+button:hover {
+	border: 2.5px solid var(--write-color);
+	background-color: var(--secondary-color);
+	color: #2b364a;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+		0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:active {
+	background-color: var(--tercenary-color);
+	box-shadow: 0 5px rgba(102, 102, 102, 0.486);
+	transform: translateY(2px);
+}

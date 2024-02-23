@@ -1,0 +1,29 @@
+                                                 Anotações da seção 33
+----------------------------------------------------------------------------------------------------------
+
+	Aula 3
+----------------------
+
+
+Meta-dado ViewPort : 
+
+	Os navegadores em celulares usam uma janela virtual chamada viewport e ela, na maioria das vezes,
+	é maior que o tamanho da tela do celular, entao é necessario utilizar a meta viewport com o
+	tamanho total da tela do celular ("device-width" e "initial-scale=1.0). Assim, garantimos o
+	ajuste e uma otima exp pro usuario no celular.
+
+	Aula 4
+----------------------
+
+
+id :
+
+	Identificador da tag, ele é unico para cada elemento. Normalmente quando usamos palavras compostas 
+	usamos o hifen para separa-los como: id= "cabecalho-um" ou id= "titulo-dois".
+
+class:
+
+	Classe da tag, usado apra conjuntos de elementos.Usando a mesma regra para nomes compostos. E
+	podemos usar mais de uma classe no mesmo elemento, como: class= "cabecalho-um borda-vermelha".
+
+

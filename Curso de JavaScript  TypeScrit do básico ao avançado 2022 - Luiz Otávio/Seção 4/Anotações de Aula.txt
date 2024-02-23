@@ -1,0 +1,289 @@
+                                                 Anotações da seção 3
+----------------------------------------------------------------------------------------------------------
+
+	Aula 68
+----------------------
+
+ - Declaraçãod função (Function hoisting):
+
+	A engine (motor) do JS vai elevar as declaraçps de funções e variáveis
+ declarada com a palavra var para o topo do nosso JS, Isso significa que eu posso
+ tanto chamar essa funcão depois de ser declarada como antes!
+	Para declarar: <nome da função>();
+
+ - Objetos de primeira classe, first-class objects:
+	
+	A função pode ser tratada como um dado. Ou seja, é possivel salvar uma função
+ em uma constante/variável, Uma const/let/var recebe uma função como dado.
+	OBS: Para executar faça da msm forma como na tradicional.
+
+ - Dentro de um objeto:
+
+	Podemeos ter uma função dentro de um objeto, chamada de método. Para chamá-la:
+ <nome do objeto>.<nome da chave>();
+  
+
+	Aula 69
+----------------------
+ 
+ - Parâmetros da funçao:
+
+	Quando criada utilizando a palavra function, mesmo se n passarmos um parametro
+ na declaração dela.
+	
+   Arguments:
+	Se passarmos na hora da chamada de uma funçao os agumentos, podemos fazer uso
+ deles, dentro da função,  utiliando o objeto arguments. E podemos acessar esses
+ argumentos salvos automaticamente pelo JS.
+ 
+  Rest (...):
+	Os operadores rest e spread permitem trabalhar com múltiplos parâmetro em funções.
+ Sendo o Rest utilizado para permitir que uma função receba um número indefinido de
+ parâmetros, enquanto o spread permite definir um número indefinido de parâmetros para
+ uma função, Array ou objeto.
+	OBS: O operador rest tem q ser o último parâmetro.
+	OBS2: rest operator funciona em todos os tipos de funções.
+	
+
+	Aula 70
+----------------------
+
+
+ - Return:
+	
+	return => retorna um valor e termina a função.
+
+	Funções sem return, irão retornar valor undefined
+	
+	Quando retornamos uma funcao com outra função, se colocarmos em uma variável
+ teremos q entender essa nova variável como uma função. Ou seja, para fazer funcionar
+ devemos chamá-la. Elas são conhecidas como funções de fechamento, closed, pois elas
+ estão fechando o escopo, da primeira função criada, mesmo depois dele já ter sido usado.
+ Só usando os parametros da função interna, pois na criacao da func closed nós usamos os 
+ parametros da funcao mais global.
+
+
+	Aula 71
+----------------------
+
+ - Escopo léxico:
+	
+	O escopo léxico define o escopo em termos da estrutura léxica do programa. Com 
+ escopo léxico, um nome sempre se refere ao seu ambiente léxico (mais ou menos) local.
+ Esta é uma propriedade do texto do programa e é feita independente da pilha de chamadas
+ em tempo de execução pela implementação da linguagem.	
+
+
+	Aula 72
+----------------------
+
+
+ - Closure (Função aninhada):
+	
+	É a combinação de uma função com as referências ao estado que a circunda
+ (o ambiente léxico). Em outras palavras, uma closure lhe dá acesso ao escopo de uma
+ função externa a partir de uma função interna.
+	
+	Em JavaScript, as closures são criadas toda vez que uma função é criada, no
+ momento da criação da função. 
+
+
+
+	Aula 73
+----------------------
+
+
+ - Callback (Função de CallBack):
+
+	Uma função callback é uma função passada a outra função como argumento, que é
+ então invocado dentro da função externa para completar algum tipo de rotina ou ação.
+
+	Aqui está um pequeno exemplo:
+-----
+	function greeting(name) {
+	  alert('Olá ' + name);
+	}
+
+	function processUserInput(callback) {
+	  var name = prompt('Por favor insira seu nome.');
+	  callback(name);
+	}
+
+	processUserInput(greeting);
+-----
+	
+	O exemplo acima é de uma synchronous callback, uma vez que é executada imediatamente.
+
+	Note, no entanto, que callbacks são normalmente utilizados para continuar a execução
+ do código após uma operação asynchronous ser terminada — essas são chamadas asynchronous
+ callbacks. 
+	
+	Um bom exemplo são as funções callback executadas dentro de um bloco .then()
+ encadeado ao final de uma promessa após essa promessa ser cumprida ou rejeitada. Essa
+ estrutura é usada em muitas APIs da web modernas, como a fetch().
+
+
+
+	Aula 74
+----------------------
+
+
+ - gabarito:
+	
+	Envolva a a função anônima em parênteses e depois coloque mais um
+ parêntese, podendo passar nele alguns parametros se a func anonima tive-lôs.
+
+ - IIFE (Immediately invoked function expression):
+
+	IIFE (Immediately Invoked Function Expression, Expressão de função invocada
+ imediatamente em portuguê) é uma função em JavaScript que é executada assim que definida.
+
+ 	É um Design Pattern também conhecido como Self-Executing Anonymous Function e
+ contém duas partes principais. A primeira é a função anônima cujo escopo léxico é
+ encapsulado entre parênteses.
+	
+	A segunda parte corresponde à criação da expressão (), por meio da qual o
+ interpretador JavaScript avaliará e executará a função.
+
+
+
+	Aula 75
+----------------------
+
+ - Funções Fábrica (Factory Functions):
+
+	Factory Function é a implementação em JS de um dos padrões de projetos criacionais,
+ o Factory Method, existente como em outras linguagens orientadas a objetos. Este padrão
+ encapsula a criação de objetos a partir de um de seus métodos, funcionando como uma fábrica
+ de objetos propriamente dita.
+
+ - This:
+
+	O this faz referência ao objeto do qual a função é uma propriedade. Em outras 
+palavras, o this faz referência ao objeto que está chamando a função no momento.
+
+	O JavaScript possui a palavra-chave this que se comporta de maneira diferente de
+ outras linguagens de programação, esse fato pode confundir você no início.
+
+	Em JavaScript você pode usar this no contexto global e no contexto de função. Além
+ disso, o comportamento do this muda entre o modo estrito e o não estrito.
+
+
+
+ - Get e Set:
+
+	Getters e setters são usados para proteger seus dados, especialmente na criação
+ de classes. Para cada instância de variável, um método getter retorna seu valor, enquanto
+ um método setter o define ou atualiza.
+
+	Com o get podemos fazer um metodo se passar por uma chave comum. ou seja podemos
+ chamar uma func sem o () no final. Ou seja, vc faz um método, func, 'fingir' q é um atributo.
+
+	
+
+
+	Aula 76
+----------------------
+
+ - This:
+
+	O this no exercício em qustao mudou dentro do método pois criamos uma funcao dentro
+ de document, porem ao final da msm se utilizarmos bind, como function(){}.bind(this), 
+ Bindamos o this para dentro da func, ou a func ser uma arrow func tb resolve, pois arrow
+ func n permite mudanca no this, ou seja, o primeiro this será o unico!
+
+ - Slice:
+
+ 	O método slice() retorna uma cópia de parte de um array a partir de um subarray
+ criado entre as posições início e fim (fim não é incluído) de um array original. O Array
+ original não é modificado.  
+ Syntaxe, arr.slice([início[,fim]]).   [,fim]->opicional
+
+
+
+	Aula 77
+----------------------
+
+
+ - Função contrutora (Constructor Function):
+
+	As funções construtoras em JavaScript são como as classes do Java, diferenciando
+ apenas pela sintaxe. Em questão de funcionamento, tanto funções contrutoras no JavaScript
+ quanto Classes no Java têm a mesma utilidade: servir de molde para a criação de objetos.
+ Para construir objetos, funções construtoras precisam ser instanciadas pelo operador
+ new. O this dentro delas se referencia ao objeto criado a partir delas.
+
+ - Função contrutora X Funções Fábrica:
+	
+	As funções factory são semelhantes às construtoras, mas sem o uso do new. Nas funções
+ construtoras precisamos sempre iniciá-la com letra MAIÚSCULA, além do new. 
+
+ - New:
+
+	A palavra new cria um obejto vazio, faz o this (dentro da func) apontar para o objeto e
+ já retorna, implicitamente, para a gente esse objeto para a variável criada. Por isso não
+ precisamos do return na Constructor Function.
+
+
+	Aula 79
+----------------------
+
+- Função Recursiva:
+
+	Um ato de uma função invocando a si mesma. A recursão é usada para resolver problemas
+ que contêm subproblemas menores. Uma função recursiva pode receber dois inputs (entradas):
+ um caso base (termina a recursão) ou um caso recursivo (continua a recursão).
+ 
+- Recursividade:
+
+	Recursividade é o mecanismo de programação no qual uma definição de função ou de
+ outro objeto refere-se ao próprio objeto sendo definido. Assim função recursiva é uma função
+ que é definida em termos de si mesma. Recursividade é o mecanismo básico para repetições nas
+ linguagens funcionais.
+
+
+	Aula 80
+----------------------
+
+ - Função Geradora (generator functions):
+
+	As funções geradoras são funções onde a execução é adiada até o momento que precisamos
+ de seu retorno. Os contextos ficam salvos a cada reentrada. Funções geradoras são pilares para
+ uma programação assíncrona que mitigam os problemas com callbacks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+		
+	
+
+	
+
+
+
+

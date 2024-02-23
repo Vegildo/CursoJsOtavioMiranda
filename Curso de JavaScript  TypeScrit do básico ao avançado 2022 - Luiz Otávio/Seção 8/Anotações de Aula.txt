@@ -1,0 +1,159 @@
+                                          Anotações da seção 7
+----------------------------------------------------------------------------------------------------------
+
+
+	Aula 108
+----------------------
+
+ - Promises:
+
+	Promises são um padrão de desenvolvimento que visam representar a conclusão de
+ operações assíncronas.
+
+	O objeto Promise representa a eventual conclusão (ou falha) de uma operação assíncrona
+ e seu valor resultante.
+
+	https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+	
+ - Passo a Passo:
+
+	Vc cria uma promise usando o contrutor da promisse (new Promise())
+	Recebemos dois parametros, resolve() e reject(). (pode chamar do q quiser,
+ porem há uma convençao para usar esses nomes).
+	Resolve -> sempre q quisermos resolver uma promessa
+	Reject -> sempre q quisermos rejeitar uma promessa
+	Sendo:
+		resolve => then (resolve cai no then)
+		reject => catch (reject cai no catch)
+
+
+	Aula 109
+----------------------
+
+ - Métodos para Promises:
+
+	Promise.all Promise.race, Promise.resolve e Promise.reject são uns dos principais
+ métodos de Promises utilizados.
+	
+	all => tenta resolver todas e se uma da errado, ele rejeita todas
+	race => tenta resolver uma a uma e a primeira resolvida, ele vai entregar. Ou seja,
+ se a primeira n der erro ele entrega o valor, se for a com erro ele rejeita.
+	resolve => já retorna uma promessa resolvida (No then)
+	reject => já rejeita uma promessa com erro (No catch)
+
+	Para ver mais métodos:
+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+
+	Aula 110
+----------------------
+
+- Async/Await:
+
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/async_function
+	
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/await
+
+- 3 estados:
+
+	Pendente - Pending
+		Foi executada porém ainda n retornou o valor.
+		Estado inicial, vc manda executar e ela ainda n foi resolvida
+
+	Realizada - Fuldilled
+		Foi cumprido a primise e retornou o valor.
+		Estado Final, vc recebeu o valor.
+
+	Rejeitada - Reject
+		Foi executada porémo valor n retornou.
+
+
+
+
+	Aula 110
+----------------------
+
+
+-  XMLHttpRequest (GET) + Promises:
+
+https://pt.wikipedia.org/wiki/Lista_de_c%C3%B3digos_de_estado_HTTP
+
+https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
+
+
+
+	Aula 110
+----------------------
+
+- Fetch:
+	
+	A função fetch() já nos retorna, por padao, uma promise. Nao precisando criar ela
+
+	A API Fetch fornece uma interface JavaScript para acessar e manipular partes do
+ pipeline HTTP, tais como os pedidos e respostas. Ela também fornece o método global fetch()
+ (en-US) que fornece uma maneira fácil e lógica para buscar recursos de forma assíncrona
+ através da rede.
+
+https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

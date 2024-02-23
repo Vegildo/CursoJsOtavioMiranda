@@ -1,0 +1,70 @@
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #a1a2a6;
+	display: block;
+}
+
+form {
+	font-family: Verdana, Tahoma, sans-serif;
+	font-size: 15px;
+	max-width: 700px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1 {
+	font-size: 3rem;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	color: #cc3300;
+	text-shadow: 5px 5px 5px black;
+}
+
+.button {
+	background-color: #cc3300;
+	color: black;
+	border: none;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 4px 2px;
+	cursor: pointer;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 8px;
+}
+
+input,
+textarea {
+	width: 200px;
+	padding: 10px;
+	color: black;
+	margin-left: 20px;
+	margin-top: 10px;
+	border-radius: 5px;
+	border: 1px solid;
+}
+
+input:hover,
+button:hover,
+textarea:hover,
+input:focus,
+textarea:focus {
+	border-color: #000066;
+	box-shadow: 5px 0px 9px #cc3300;
+	background-color: #a1a2a6;
+	color: black;
+	font-weight: bold;
+}
+
+.myresp {
+	font-size: 2rem;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	color: #cc3300;
+	text-shadow: 5px 5px 5px black;
+}

@@ -1,0 +1,185 @@
+                                                 Anotações da seção 2
+----------------------------------------------------------------------------------------------------------
+
+	Aula 13
+----------------------
+
+
+ var:
+	Declara uma variável, opcionalmente, inicializando-a com um valor.
+ let:
+	Declara uma variável local de escopo do bloco, opcionalmente, inicializando-a com um valor.
+ const:
+	Declara uma constante de escopo de bloco, apenas de leitura.
+	Não aceita iniciar sem valor (undedined).
+
+
+	Aula 13
+----------------------
+
+ undefined x null:
+	Os dois tipos de dados não apontam pra nenhum lugar da memória, e a diferença é que 
+	quando utilizamos null estamos queremos indicar explicitamente que a variável criada
+	não aponte para nenum local na memória, já a undefined não fomos nós q a setamos/criamos
+	quem faz isso é o JS quando criamos uma variável sem algum valor inicial.
+	Ex: let nomeAluno; // undefined
+	    let sobrenomeAluno = null // null
+
+
+
+	Aula 21
+----------------------
+
+ alert:
+	Cria um alerta. Retorna undefined.
+ confirm:
+	Cria uma mensagem. Retorna true (clicando em ok) ou false (clicando em cancelar).
+ prompt:
+	Cria uma pergunta. Retorna o dado, em string, que foi digitado.
+
+ mudança de string para number:
+	Temos parseloat(), parseInt() e Number().
+
+
+	Aula 21
+----------------------
+
+Const com valores mutáveis
+const descreve uma variável que não pode ser reatribuída (com o operador de atribuição =). Depois de criá-la, não podemos fazer algo assim:
+
+const nome = 'luiz';
+nome = 'joão'; // Erro: Assignment to constant variable.
+Porém, existe uma diferença entre variável e valor.
+
+Variáveis são como um apelido para um valor, uma espécie de alias para mencionar algum valor salvo na memória.
+
+Já valores são os dados que realmente ficam salvos na memória e sustentam determinado tipo. Alguns tipos de valores são imutáveis, como number, string, boolean, undefined, null, symbol e bigint (os primitivos todos são imutáveis). Outros tipos são mutáveis, como arrays e objetos (objetos em geral são mutáveis, com exceção de null).
+
+Valores mutáveis geralmente são estruturas de dados mais complexas que sustentam outros valores ou comportamentos internamente. Como é o caso do array, que pode ser composto por vários outros tipos de dados.
+
+Quando usamos const com tipos primitivos, esse valor nunca mais poderá ser alterado. Nesse caso, além de const não permitir reatribuição, o valor também é imutável (consequentemente, nunca podemos alterar essa constante).
+
+Já quando usamos const com valores mutáveis (como arrays e objetos), a variável continua sendo constante, porém os valores dentro do objeto poderão ser alterados. Isso acontece porque quando alteramos um valor interno de um objeto, não ocorre a reatribuição da variável com sinal de atribuição = (a variável continua apontando para o mesmo local na memória), apenas a alteração de um valor interno do mesmo objeto.
+
+Por este motivo, pode-se usar const com objetos mutáveis e ainda assim alterar seus valores internos. A única coisa que não vamos conseguir fazer é reatribuir o valor da variável.
+
+Exemplos:
+
+Isso pode
+
+const array = [1, 2, 3, 4, 5];
+array.pop();
+array[0] = 1024;
+console.log(array); // [ 1024, 2, 3, 4 ]
+ 
+Isso NÃO pode
+
+const array = [1, 2, 3, 4, 5];
+array = 'Legal'; // Assignment to constant variable.
+	
+
+
+	Aula 31
+----------------------
+
+
+O transpilador ou tradutor da linguagem quando acha a palavra return ele para e n le mais nada abaixo de
+return. JS funciona assim tb.
+
+Usando const <nome_escolhido> = func..
+Guardamos/salvamos a funcao dentro da const criada. 
+
+Uma função dentro de um objeto é um chamada de um método.
+
+this = NESTE CONTEXTO, CONTEXTO ONDE ESTÁ INSERIDO
+
+
+	Aula 32
+----------------------
+
+
+Tipo de dados primitivos (imutáveis) - string, number, coolean, undefined, null (bignt, symbol);
+
+	Mudamos variaveis, mas os dados primitivos n podem ser mudados! pegamos outro dado primitivo e botamos na variável!
+
+	Podemos copiar para outras variáveis
+
+	Valores copiados
+
+Referência (mutável) - array, object, function
+
+	Valores passados por referencia.
+
+	Referencia da onde?? Da memoria! 
+
+let a = [1, 2, 3];
+let b = a;
+
+a.push(4);
+
+console.log(a, b);
+
+	resposta será: 
+
+[1, 2, 3, 4] [1, 2, 3, 4]
+
+	ou seja, passou tanto pra a quanto pra b pois a e b sao so variaveis q mostram um certo local na memória.
+
+	q chamamos de local da memória.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

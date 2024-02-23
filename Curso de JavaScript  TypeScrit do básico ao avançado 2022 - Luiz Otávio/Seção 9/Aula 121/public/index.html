@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Gerador de Senhas</title>
+		<link
+			rel="shortcut icon"
+			href="../src/assets/img/favicon-vaduz.png"
+			type="image/x-icon" />
+	</head>
+	<body>
+		<section class="container">
+			<h1>Gerador de senhas</h1>
+			<div class="resp">Selecione as opções</div>
+
+			<p>
+				Quantidade de caracteres
+				<input
+					value="8"
+					type="number"
+					class="num qtd"
+					id="num"
+					min="1"
+					max="30" />
+			</p>
+			<p>
+				Adicionar números
+				<input type="checkbox" class="checkbox" id="chk-num" checked />
+			</p>
+			<p>
+				Letras maiúsculas
+				<input type="checkbox" class="checkbox" id="chk-mai" />
+			</p>
+			<p>
+				Letras minúsculas<input type="checkbox" class="checkbox" id="chk-min" />
+			</p>
+			<p>
+				Adicionar símbolos<input
+					type="checkbox"
+					class="checkbox"
+					id="chk-sym" />
+			</p>
+
+			<div class="div-btn"><button class="btn">Gerar Senha</button></div>
+		</section>
+		<script src="./assets/js/bundle.js"></script>
+	</body>
+</html>

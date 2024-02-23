@@ -1,0 +1,628 @@
+                                          Anotações da seção 7
+----------------------------------------------------------------------------------------------------------
+
+	Exercícios: https://github.com/florinpop17/app-ideas
+
+	Aula 124
+-------------------------
+
+
+ - Module:
+
+	É uma coleção de funções e objetos do JavaScript que podem ser utilizados por aplicativos externos.
+
+	Exports:
+
+		O module.exports é uma propriedade especial no Node.js que permite que módulos exportem
+ funcionalidades para serem usadas por outros arquivos. Ele é usado para expor funções, objetos, variáveis
+ e outros tipos de dados de um módulo para que possam ser importados e utilizados em outros arquivos.
+
+ - Require:
+
+	O Node.js possui uma sintaxe de importação de módulos semelhante à do JavaScript, mas existem algumas
+ diferenças fundamentais entre as palavras-chave require e import. A principal diferença entre require e import é
+ que require é usado para carregar módulos no Node.js, enquanto import é usado para importar módulos no JavaScript.
+ O require é uma função built-in do Node.js e é usado para carregar módulos de arquivos externos e pacotes
+ instalados globalmente. Ele também pode ser usado para carregar módulos internos do Node.js, como http e fs.
+
+ - Destructuring:
+
+	O destructuring do Javascript é utilizado para extrair valores de arrays e objetos para variáveis.
+ 
+ - Destructuring assignment:
+
+	A sintaxe de atribuição via desestruturação (destructuring assignment) é uma expressão JavaScript que
+ possibilita extrair dados de arrays ou objetos em variáveis distintas.
+
+
+
+	Aula 125
+-------------------------
+
+
+ - __filename:
+
+	O __filename no Node.js retorna o nome do arquivo do código que é executado. Ele fornece o caminho absoluto
+ do arquivo de código.
+
+ - __dirname:
+	
+	A string __dirname fornece o caminho do diretório do módulo atual, que também é semelhante ao path.dirname()
+ do nome do arquivo.
+	Para usar o path temos q usar path.resolve(__dirname);
+
+
+ OBS:
+ - .: path, a pasta que estamos;
+ - ./: pra frente, proxima pasta
+ - ../: pra tras, pasta anterior
+
+
+	Aula 126
+-------------------------
+
+
+ - NPM:
+ 
+	O npm é o Gerenciador de Pacotes do Node (Node Package Manager).
+	Ele é um repositório amplamente usado para a publicação de projetos Node.js de código aberto (open-source).
+ Isso significa que ele é uma plataforma online onde qualquer pessoa pode publicar e compartilhar ferramentas
+ escritas em JavaScript.
+	O npm é uma ferramenta de linha de comando que ajuda a interagir com plataformas online, como navegadores
+ e servidores. Essa utilidade auxilia na instalação e desinstalação de pacotes, gerenciamento da versões e
+ gerenciamento de dependências necessárias para executar um projeto.
+
+ - Versôes:
+
+  2.      1.    0
+ major  minor  patch
+
+patch - Quando corrigir falhas mantendo compatibilidade.
+minor - Quando adicionar funcionalidades mantendo compatibilidade.
+major - Quando fizer mudanças incompatíveis na API.
+
+ - Flags:
+ ^ att a minor e a patch
+ ~ att somente a patch
+
+ OBS:
+
+	dependencies: Pacotes q fazem parte do projeto final
+	devdependecies: Pacores q fazem parte do desenvolvimento;
+
+	Alguns ex são babel e webpack que sao dependencias especificas de desenvolvimento, ou seja  elas n precisam
+ e nem tem q estar no projeto final.
+
+
+	Aula 126
+-------------------------
+
+
+ - File System, fs:
+
+	Sistema de arquivo (file system) é um conjunto de regras e estruturas usadas para organizar, gerenciar e
+ armazenar informações em HDDs, módulos SSDs, CDs, DVDs, pen drives e cartões de memória. São essas regras que
+ determinam como os dados serão gravados no dispositivo de armazenamento.
+
+	https://nodejs.org/dist/latest-v18.x/docs/api/fs.html
+
+ -Recursão mútua:
+
+ 	É uma forma de recursão em que dois objetos matemáticos ou computacionais, como funções ou tipos de dados,
+ são definidos em termos do outro.
+
+
+ OBS:
+	pwd -> na linha de comando mostra o caminho 
+
+
+
+	Aula 129
+-------------------------
+
+
+ 
+ - resolve:
+
+	path.resolve(__dirname, 'teste.txt')  => path.resolve(<local do arquivo>, <nome do arquivo>)
+
+ - fs.writeFile():
+	O método fs.writeFile() é usado para gravar de forma assíncrona os dados especificados em um arquivo.
+ Por padrão, o arquivo será substituído se existir. O parâmetro 'options' pode ser usado para modificar a
+ funcionalidade do método.
+
+	Parâmetros: Este método aceita quatro parâmetros conforme mencionado acima e descrito abaixo:
+
+		file: É uma string, Buffer, URL ou inteiro de descrição de arquivo que denota o caminho do arquivo
+ onde deve ser escrito. O uso de um descritor de arquivo fará com que ele se comporte de maneira semelhante ao
+ método fs.write().
+		
+		data: É uma string, Buffer, TypedArray ou DataView que será escrita no arquivo.
+		
+		opções: É uma string ou objeto que pode ser usado para especificar parâmetros opcionais que afetarão
+ a saída. Possui três parâmetros opcionais:
+			
+			codificação: É um valor de string que especifica a codificação do arquivo. O valor padrão
+ é 'utf8'.
+			
+			mode: É um valor inteiro que especifica o modo do arquivo. O valor padrão é 0o666.
+			
+			sinalizador: É um valor de string que especifica o sinalizador usado durante a gravação no
+ arquivo. O valor padrão é 'w'. 'a' é append e add ao invés de reescrever como o 'w'
+		
+		callback: É a função que seria chamada quando o método fosse executado.
+		
+			err: É um erro que seria lançado se a operação falhasse.
+
+	Sintaxe:
+
+		fs.writeFile(arquivo, dados, opções, retorno de chamada)
+
+ - JSON:
+	
+	O JSON é um formato que armazena informações estruturadas e é principalmente usado para transferir dados
+ entre um servidor e um cliente. O arquivo é basicamente uma alternativa simples e mais leve ao XML (Extensive
+ Markup Language), que tem funções similares.
+	
+	Exemplo em transformar um array ou objects em JSON:
+	 
+		const array = [valores...];
+		const arrayJSON = JSON.stringfy(array);
+
+	Exemplo em transformar um JSON ou objects em Objects ou Array:
+	 
+		const jsonObject = JSON.parse(arrayJSON);
+
+OBS:
+	A fs é uma API do Node.js
+
+
+
+	Aula 130
+-------------------------
+
+
+
+ - CRUD:
+
+	CRUD (Create, Read, Update, Delete) é um acrônimo para as maneiras de se operar em informação armazenada.
+ É um mnemônico para as quatro operações básicas de armazenamento persistente. CRUD tipicamente refere-se a
+ operações perfomadas em um banco de dados ou base de dados, mas também pode aplicar-se para funções de alto nível
+ de uma aplicação, como exclusões reversíveis, onde a informação não é realmente deletada, mas é marcada como
+ deletada via status.	
+ 
+
+
+
+	Aula 131-132
+-------------------------
+
+
+ - Tipos de requisição:
+	1 - Parametros de url:
+ 		/profiles/12345?campanha=googleads&nome_campanha=seila
+
+ 		/profiles/12345 ?
+ 		campanha=googleads &
+ 		nome_campanha=seila
+
+	2 - Corpo da requisição porem nao vai pra url 
+
+		Abra inspeção
+		Abre a aba network
+		clique no site
+		la embaixo no headers tem Form Data
+		Clique em view parsed
+
+
+ - Params:
+	nome do JSON é params, que é parametro
+	/:<nome da chave> ? 
+	A interrogação deixa o nome da chave opcional
+
+
+ - req/res:
+req => objeto de solicitação
+res => objeto de resposta
+
+
+ - middleware:
+
+	O Express é uma estrutura web de roteamento e middlewares que tem uma funcionalidade mínima por si só:
+ Um aplicativo do Express é essencialmente uma série de chamadas de funções de middleware.
+
+	Funções de Middleware são funções que tem acesso ao objeto de solicitação (req), o objeto de resposta (res),
+ e a próxima função de middleware no ciclo solicitação-resposta do aplicativo. A próxima função middleware é
+ comumente denotada por uma variável chamada next.
+
+	Funções de middleware podem executar as seguintes tarefas:
+
+		Executar qualquer código.
+		Fazer mudanças nos objetos de solicitação e resposta.
+		Encerrar o ciclo de solicitação-resposta.
+		Chamar a próxima função de middleware na pilha.
+
+	Se a atual função de middleware não terminar o ciclo de solicitação-resposta, ela precisa chamar next()
+ para passar o controle para a próxima função de middleware. Caso contrário, a solicitação ficará suspensa.
+
+	Um aplicativo Express pode usar os seguintes tipos de middleware:
+
+		Middleware de nível do aplicativo
+		Middleware de nível de roteador
+		Middleware de manipulação de erros
+		Middleware integrado
+		Middleware de Terceiros
+
+	É possível carregar middlewares de nível de roteador e de nível do aplicativo com um caminho de montagem
+ opcional. É possível também carregar uma série de funções de middleware juntas, o que cria uma sub-pilha do
+ sistema de middleware em um ponto de montagem.
+
+	Para mais, acesse:
+
+		https://expressjs.com/pt-br/guide/using-middleware.html
+
+
+
+	Aula 133
+-------------------------
+
+
+
+ - Router:
+
+	Express.Router() é um gerenciador/manipulador de rotas do NodeJS. Ela serve para criar rotas de forma
+ modularizada, assim possibilitando criar um arquivo separado de manipulação de rotas.
+
+	Por exemplo, crie um diretorio chamado "rotes" e crie um arquivo "indexRotes.js". Dentro deste arquivo
+ você vai utilizar o Router() para criar uma estruturas de rotas que em breve serão exportadas.
+
+
+
+	Aula 134 & 135
+-------------------------
+
+
+
+ - Views:
+
+	Antes do Express poder renderizar arquivos de modelo, as seguintes configurações do aplicativo devem ser
+ configuradas: 
+
+	- views, é o diretório onde os arquivos de modelo estão localizados. Ex: app.set('views','./views')
+	- view engine, o mecanismo de modelo a ser usado. Ex: app.set('view engine', 'pug')
+	
+
+	Em seguida instale o pacote npm correspondente ao mecanismo de modelo:
+
+		$ npm install pug --save
+
+ - Conteúdo estático:
+
+	Conteúdo estático é qualquer arquivo armazenado em um servidor e sempre é exibido aos usuários da mesma
+ forma. Ou seja, o conteúdo que não muda de acordo com o utilizador. Arquivos HTML e imagens são exemplos desse
+ tipo de conteúdo.
+
+	OBS:
+		O processo normal é salvar uma cópia do arquivo estático em cache (por exemplo, uma imagem) quando
+ o conteúdo é exibido, de modo que ele fique mais perto do usuário e seja veiculado mais rapidamente na próxima
+ vez. Navegadores e Redes de distribuição de conteúdo (CDNs) podem armazenar conteúdo estático em cache por um
+ período definido e exibi-lo aos usuários enquanto ele for solicitado. Isso é possível porque o conteúdo estático
+ não muda com o passar do tempo, ou seja, o mesmo arquivo é mostrado repetidamente.
+
+
+
+	Aula 137
+-------------------------
+
+
+ - middleware:
+
+	O middleware abstrai o processo de comunicação subjacente entre componentes. Isso significa que a aplicação
+ frontend se comunica apenas com o middleware e não precisa aprender a linguagem de outros componentes de software
+ de backend. 	
+	São as funções utilizadas, chamadas, entre a renderização e a resposta na tela do usuário. Elas recebem
+ 3 parametros res, req e next. Como res e req já vimos, falarei somente do next. Que é utilizado no final da função
+ e é o argumento de retorno de chamada para a função de middleware.
+  
+
+	O exemplo a seguir, de um simples aplicativo “Hello World” do Express, mostra os elementos de uma chamada de
+ função de middleware:
+		
+		var express = require('express');
+		var app = express();
+
+		app.get('/', function (req, res, next) {
+  			res.send('Hello World!');
+			next();
+		});
+
+		app.listen(3000);
+
+	
+	O método HTTP para o qual a função de middleware é aplicada. -> .get()
+
+	Caminho (rota) para o qual a função de middleware é aplicada. -> '/'
+
+	A função de middleware. -> function(...){...}
+
+	Argumento de retorno de chamada para a função de middleware, chamado de "next" por convenção. -> req
+
+	Argumento de resposta HTTP para a função de middleware, chamado de "res" por convenção. -> res
+
+	Argumento de solicitação HTTP para a função de middleware, chamado de "req" por convenção. -> next
+
+ 	Middleware são extremamentes poderosos pois podemos interceptar varias coisas
+
+
+
+	Aula 138 - 139
+-------------------------
+
+
+
+
+ - MongoDB:
+
+	O MongoDB é um banco de dados não-relacional orientado a documentos — ou seja, que não se utiliza de
+ tabelas e colunas pré-definidas, mas armazena documentos em formato JSON, que por sua vez, trazem a definição da
+ própria estrutura. 
+
+	Os desenvolvedores definem de que forma querem construir a estrutura dos documentos e coleções, sem que
+ seja necessário estabelecer um padrão previamente.
+
+	https://awari.com.br/o-que-e-mongo-db/?utm_source=blog&utm_campaign=projeto+blog&utm_medium=MongoDB:%20o%20que%20%C3%A9%20e%20como%20utilizar%20esse%20banco%20de%20dados#:~:text=O%20MongoDB%20%C3%A9%20um%20banco,a%20defini%C3%A7%C3%A3o%20da%20pr%C3%B3pria%20estrutura.
+
+ - Ex da aula:
+
+	Project: project0
+
+	Cluster: leovv
+	
+	usuário: leo
+
+	senha: 1210
+
+	instalar o driver:  npm i mongodb
+
+	Adicione sua string de conexão ao código do aplicativo: 
+		mongodb+srv://leo:1210@leovv.insh30a.mongodb.net/?retryWrites=true&w=majority
+
+		mongodb+srv://<usuário>:<senha>@<server>.insh30a.mongodb.net/<Nome do banco de dados, database -> collections>?retryWrites=true&w=majority
+
+
+
+	Aula 140
+-------------------------
+
+
+ - Dotenv:
+
+	As variáveis de ambiente guardam os dados de configuração do sistema. Elas geralmente armazenam informações
+ sensíveis como, por exemplo, chaves de APIs, credenciais de acesso a bancos de dados, localização de arquivos,
+ portas HTTPs, etc.
+
+	Já que as variáveis de ambiente contêm informações privadas, é importante que elas não fiquem expostas.
+ Sendo assim, uma boa prática é mantê-las separadas do código.
+
+	O Dotenv é um pacote que serve justamente para gerenciar as variáveis de ambiente dentro de um projeto
+ Node.js. Essa ferramenta armazena a configuração dessas variáveis em um ambiente separado do código da aplicação.
+
+	
+	Manter um arquivo de configuração nos traz facilidades no desenvolvimento de softwares, pois permite que os
+ valores das variáveis de ambiente sejam facilmente alterados nos diferentes ambientes utilizados, sem a necessidade
+ de alterar o código. Se faz necessário apenas alterar os valores das variáveis de ambiente no arquivo que as
+ armazena.
+
+
+	https://www.alura.com.br/artigos/dotenv-gerenciando-variaveis-ambiente#:~:text=O%20Dotenv%20%C3%A9%20um%20pacote,separado%20do%20c%C3%B3digo%20da%20aplica%C3%A7%C3%A3o.
+
+
+ - Mongoose
+
+	Mongoose é um biblioteca de Modelagem de Dados de Objeto (ou ODM, do inglês: Object Data Modeling) para
+ MongoDB e Node.js. Ele gerencia o relacionamento entre dados, fornece a validação de esquemas e é usado como
+ tradutor entre objetos no código e a representação desses objetos no MongoDB.
+
+
+	Node.js -->  mongoose -->  Mongo Driver -->  MongoDB -->  OBJECT MAPPING --> Node.js ...
+
+
+
+	O MongoDB é um banco de dados de documentos NoSQL que não possui esquemas. Isso significa que ele guarda
+ documentos JSON e que a estrutura deles pode variar, já que não há a estrutura rígida igual a dos bancos SQL.
+ Essa é uma das vantagens de se usar NoSQL, pois acelera o desenvolvimento de aplicações e reduz a complexidade das
+ implementações.
+	
+	
+	
+	https://www.freecodecamp.org/portuguese/news/introducao-ao-mongoose-para-mongodb/#:~:text=Mongoose%20%C3%A9%20um%20biblioteca%20de,representa%C3%A7%C3%A3o%20desses%20objetos%20no%20MongoDB.
+
+
+ - Models:
+
+	Geralmente são classes.
+
+
+
+
+	Aula 142
+-------------------------
+
+ - express-session:
+
+	 O middleware express-session armazena os dados da sessão no servidor; ele salva apenas o ID da sessão no
+ cookie, não os dados da sessão. Por padrão, ele usa armazenamento em memória e não é projetado para um ambiente de
+ produção. Em produção, será necessário configurar um armazenamento de sessão escalável; consulte a lista de
+ armazenamentos de sessão compatíveis(link no site abaixo).
+
+	https://expressjs.com/pt-br/advanced/best-practice-security.html#:~:text=O%20middleware%20express%2Dsession%20armazena,para%20um%20ambiente%20de%20produ%C3%A7%C3%A3o.	
+
+ - connect-mongo:
+	
+	https://www.npmjs.com/package/connect-mongo#connection-to-mongodb
+
+ - connect-flash:
+
+	O módulo Connect-flash para Node.js permite que os desenvolvedores enviem uma mensagem sempre que um usuário
+ estiver redirecionando para uma página da web especificada. 
+
+
+
+
+	Aula 144
+-------------------------
+
+
+ - EJS:
+
+	EJS é uma linguagem de modelagem simples que permite gerar marcação HTML com JavaScript simples. Nenhuma
+ religiosidade sobre como organizar as coisas. Nenhuma reinvenção de iteração e fluxo de controle. É simplesmente
+ JavaScript.
+
+	<%  - Tag 'Scriptlet', para fluxo de controle, sem saída.
+	<%_ - Marca de Scriptlet 'Whitespace Slurping', retira todos os espaços em branco antes dela.
+	<%= - Emite o valor no modelo (HTML escapado).
+	<%- - Emite o valor sem escape no modelo.
+	<%# - Marca de comentário, sem execução, sem saída.
+	<%% - Gera um literal '<%'.
+	 %> - Tag de finalização simples.
+	-%> - Marca de modo de corte ('newline slurp'), apara seguindo a nova linha.
+	_%> - Marca final 'Whitespace Slurping', remove todos os espaços em branco depois dela.
+
+
+
+
+	Aula 145
+-------------------------
+
+
+ - Helmet:
+
+	O Helmet pode ajudar a proteger o seu aplicativo de algumas vulnerabilidades da web bastante conhecidas
+ configurando os cabeçalhos HTTP adequadamente.
+
+	O Helmet é na realidade apenas uma coleção de nove funções de middlewares menores que configuram cabeçalhos
+ HTTP relacionados à segurança:
+
+		A csp configura o cabeçalho Content-Security-Policy para ajudar a evitar ataques de cross-site
+ scripting e outras injeções cross-site.
+
+		A hidePoweredBy remove o cabeçalho X-Powered-By.
+
+		A hsts configura o cabeçalho Strict-Transport-Security que impinge conexões seguras (HTTP sobre
+ SSL/TLS) com o servidor.
+
+		A ieNoOpen configura o X-Download-Options para o IE8+.
+
+		A noCache configura os cabeçalhos Cache-Control e Pragma para desativar o armazenamento em cache
+ no lado do cliente.
+
+		A noSniff configura o X-Content-Type-Options para evitar que os navegadores procurem por MIME uma
+ resposta a partir do content-type declarado.
+
+		A frameguard configura o cabeçalho X-Frame-Options para fornecer proteção clickjacking.
+
+		A xssFilter configura o X-XSS-Protection para ativar o filtro de Cross-site scripting (XSS) nos
+ navegadores da web mais recentes.
+
+
+	Referências:
+
+		https://expressjs.com/pt-br/advanced/best-practice-security.html#:~:text=O%20Helmet%20%C3%A9%20na%20realidade,e%20outras%20inje%C3%A7%C3%B5es%20cross%2Dsite.
+
+		https://helmetjs.github.io/
+
+		https://expressjs.com/en/advanced/best-practice-security.html
+	
+
+ - CSRF:
+
+	cross-site Request Forgery (CSRF) é um tipo de ataque de websites maliciosos. Um ataque CSRF às vezes é
+ chamado de ataque de um clique ou transporte de sessão. Esse tipo de ataque envia solicitações desautorizadas de
+ um usuário no qual o website confia.	
+
+	Um Ataque CSRF é aquele que engana uma vítima e a faz enviar uma solicitação maliciosa - uma solicitação
+ que ela não pretendia fazer - a um website onde ela está autenticada (logada).
+
+	A solicitação deve ter origem em outro website, que dá o nome "Cross-Site". Esta solicitação também imita
+ um usuário autenticado, o que lhe dá o nome "Request Forgery".
+
+	Referência:
+
+		https://acervolima.com/implementando-middleware-csurf-em-node-js/
+
+		https://www.npmjs.com/package/csrf
+
+
+
+
+	Aula 147
+-------------------------
+
+ - MVC:
+
+	 O modelo MVC, Model-View-Controller, é utilizar uma solução já definida para separar partes distintas do
+ projeto reduzindo suas dependências ao máximo.
+
+
+
+	Referência:
+	
+		https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308		
+ - env:
+
+	variáveis, e outros dados, de ambiente de desenvolvimnto que vc nao quer publicar no repositorio
+
+ - mongoose:
+
+	Modelar a base de dados, garantindo que a base de dados seja usadis da forma q a gnt quere salvar.
+
+ - session:
+	
+	Salva um cookie do cliente
+
+ - MongoStore:
+
+	As sessoes serão salvas edntro na base de dados.
+
+ - flash:
+	
+	Cria mensagens q dps n ficam salvas em nenhum lugar, otimizando o projeto.
+
+ - routes:
+
+	rotas da aplicaçao.
+
+ - helmet:
+
+	seguranca recomendada pelo express.
+
+ - crsf:
+
+	tokens para formulários, seguranca.
+
+ - middleware:
+
+	funçoes q sao executadas na rota.
+ 
+ - express.urlencoded: extended:true
+
+	Libera formulários na aplicação
+
+ - express.static:
+
+	habilita o acesso direto aos arquivos estáticos.
+
+ - ejs:
+	uma engine de views
+
+ - 
+
+
+
+
+
+
+
+
+

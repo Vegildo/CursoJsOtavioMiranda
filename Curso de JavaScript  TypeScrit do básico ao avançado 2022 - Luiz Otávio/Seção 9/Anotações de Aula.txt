@@ -1,0 +1,288 @@
+                                          Anotações da seção 7
+----------------------------------------------------------------------------------------------------------
+
+
+	Aula 115
+-------------------------
+
+
+ - Babel:
+
+	Babel é um transpilador JavaScript. Quando você tem um código ES2015, que é a versão atual de
+ JavaScript, deve utilizar o transpilador para converter o código novo e gerar, assim, um novo código
+ em ES5, que é uma versão antiga do JavaScript. 
+
+	Essa mudança de código torna-o compreensível para o navegador, permitindo a continuidade dos
+ trabalhos. 
+
+	Entre as suas vantagens estão ter código aberto e ser multiplataforma, permitindo assim o
+ acesso fácil de todo desenvolvedor que precisa fazer essa alteração. 
+
+https://babeljs.io/
+
+npm i --save-dev @babel/cli@7.6.4 @babel/preset-env@7.6.3 @babel/core@7.6.4
+
+@7.6.4 no final é para eu escolher a versão, se n colocar entao baixarei a versao mais atual.
+s
+
+package.json:
+
+"babel": "babel ./main.js -o ./bundle.js --presets=@babel/env -w"
+
+OBS: para sair aperte ctrl + c
+ - Transpilador x Compilador:
+
+	Transpilador: ferramenta que lê o código fonte escrito em uma linguagem de programação
+ e o produz um código equivalente, com o mesmo nível de abstração.
+	
+	Compilador: recurso que possibilita traduzir uma linguagem de médio ou alto nível para
+ uma linguagem de nível mais baixo.
+
+
+ - Can I use?:
+	
+https://caniuse.com/  => tec. de js que são suportadas nos browsers.
+
+	Aula 116
+-------------------------
+
+
+ - Webpack:
+
+	https://webpack.js.org/
+
+	No terminal gitbash da pasta:
+
+		npm init -y    
+//obs: O -y é ´ra respondr automaticamente yes para tds as perguntas, evite nome de pastas
+ com espacços ou letras maiusculas.
+
+		npm i --save-dev @babel/preset-env @babel/core @babel/cli babel-loader webpack webpack-cli 
+//obs: O i vem de install, as duas formas são aceitas.
+
+		npm i regenerator-runtime core-js
+
+//OBS: Se vc tiver uma pasta de package-json e rodar npm i, ele automaticamente instala td q esta la.
+
+
+	webpack.config.js:
+
+const path = require("path"); //CommonJS
+
+module.exports = {
+	mode: "development",
+	entry: "./src/index.js",
+	output: {
+		path: path.resolve(__dirname, "public", "assets", "js"), //caminho onde ficará o arquivo
+		filename: "bundle.js", //nome do arquivo
+	},
+    module: {
+		rules: [
+			{
+				exclude: /node_modules/,
+				test: /\.js$/,
+				use: {
+					loader: "babel-loader",
+					options: {
+						presets: ["@babel/env"],
+					},
+				},
+			},
+		],
+	},
+    devtool: 'source-map', //se tiver erro, ele mapeia o erro no bundle pra te mostrar em qual aruivo está
+
+    
+};
+
+
+
+	OBS: timeout (tempo em segundos) npm run gera 
+//só rodará por 30 segundos e dps fecha
+	
+	OBS: QUITAR UM WATCH = CTRL + c
+	
+	Aula 118
+-------------------------
+
+
+- Módulos:
+
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Modules
+
+- Import:
+
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/import
+
+	Sintaxe:
+
+import defaultExport from "module-name";
+import * as name from "module-name";
+import { export } from "module-name";
+import { export as alias } from "module-name";
+import { export1 , export2 } from "module-name";
+import { foo , bar } from "module-name/path/to/specific/un-exported/file";
+import { export1 , export2 as alias2 , [...] } from "module-name";
+import defaultExport, { export [ , [...] ] } from "module-name";
+import defaultExport, * as name from "module-name";
+import "module-name"; var promise = import("module-name"); // This is a stage 3 proposal.
+
+
+	OBS:
+
+-defaultExport
+Nome que de referência para a exportação padrão do módulo.
+
+-module-name
+O módulo para importar. Geralmente, esse é um nome de caminho relativo ou absoluto para o arquivo .js contendo esse módulo. Certos empacotadores podem permitir ou exigir o uso da extensão; verifique seu ambiente. Apenas aspas simples e aspas duplas são permitidas.
+
+-name
+Nome do objeto do módulo que será usado como um tipo de espaço de nomes ao se referir às importações.
+
+-export, exportN
+Nome das exportações a serem importadas.
+
+-alias, aliasN
+Nomes que se referem às importações nomeadas.
+
+
+- Export:
+	  
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/export
+
+	Sintaxe:
+
+		Há dois tipos de exportação:
+
+	1. Exportações Explícitas (Named Exports) (Zero ou mais exports por módulo)
+	2. Exportações Padrão (Default Exports) (Uma por módulo)
+
+
+// Exportando recursos individuais
+export let name1, name2, …, nameN; // também var, const
+export let name1 = …, name2 = …, …, nameN; // também var, const
+export function functionName(){...}
+export class ClassName {...}
+
+// Lista de exportações
+export { name1, name2, …, nameN };
+
+// Renomeando exports
+export { variable1 as name1, variable2 as name2, …, nameN };
+
+// Exportando atribuições desestruturadas renomeando
+export const { name1, name2: bar } = o;
+
+// Exportações Padrão (Default exports)
+export default expression;
+export default function (…) { … } // também class, function*
+export default function name1(…) { … } // também class, function*
+export { name1 as default, … };
+
+// Agregando módulos
+export * from …; // não define a exportação padrão
+export * as name1 from …; // Draft ECMAScript® 2O21
+export { name1, name2, …, nameN } from …;
+export { import1 as name1, import2 as name2, …, nameN } from …;
+export { default } from …;
+
+
+	OBS:
+
+- nameN
+Identificador para ser exportado (assim ele pode ser importado via import em outro script).
+
+Descrição
+
+
+-	default:
+
+
+	OBS:
+Por padrão, só podemos usar uma vez e na hora de importar so será importado ele
+
+	Aula 121
+-------------------------
+
+	OBS:
+
+	- join():
+
+	O método join() junta todos os elementos de um array (ou um array-like object) em uma
+ string e retorna esta string.
+
+	Sintaxe:
+
+		arr.join([separador = ','])
+
+	EX: 
+		array.join('') //Nesse caso o separador é nada entre eles.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

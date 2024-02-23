@@ -1,0 +1,270 @@
+                                                 Anotações da seção 17
+----------------------------------------------------------------------------------------------------------
+
+
+[xyz], [^xyz], ., \d, \D, \w, \W, \s, \S, \t, \r, \n, \v, \f, [\b], \0, \cX, \xhh, \uhhhh, \u{hhhh}, x|y	
+Character classes
+
+^, $, \b, \B, x(?=y), x(?!y), (?<=y)x, (?<!y)x	
+Assertions
+
+(x), (?<Name>x), (?:x), \n, \k<Name>	
+Groups and backreferences
+
+x*, x+, x?, x{n}, x{n,}, x{n,m}	
+Quantifiers
+
+
+	Aula 249
+----------------------
+
+ - Expressões Regulares:
+
+	Expressões regulares são padrões utilizados para selecionar combinações de caracteres em uma string. Em
+ JavaScript, expressões regulares também são objetos. Elas podem ser utilizadas com os métodos exec e test do
+ objeto RegExp, e com os métodos match, replace,search, e split do objeto String. 
+
+	Há duas maneiras de construir uma expressão regular:
+
+	Usando uma expressão literal, que consiste em um padrão fechado entre barras, como o exemplo a seguir:
+
+		const regex = /ab+c/;
+
+	As expressões regulares na forma literal são compiladas quando o script é carregado. Esta forma de
+ construção possui melhor performace quando a expressão regular utilizada é uma constante, ou seja, não muda
+ durante a execução.
+
+	Ou chamando o construtor do objeto RegExp:	
+
+		let regex = new RegExp("ab+c");
+
+	Usando o construtor, a compilação da expressão regular é realizada em tempo de execução. Use o construtor
+ quando souber que o padrão da expressão regular irá mudar ou quando o padrão for desconhecido, oriundo de outra
+ fonte, uma entrada de usuário por exemplo.
+
+	https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_expressions
+
+ - Flags:
+
+	g - global (encontra todas as ocorreências)
+	i - case insensitive
+	() - groupos
+	|  - ou
+	() () ()   ->   $1  $2  $3  ->  $numero em sequencia fala qual grupo é.
+	\ (obrigatório). Caractere de escape, ou seja tira o significado de meta caracter e deixa o valor real
+ do simbolo
+	. (opcional). Significa qualquer caractere, exceto uma nova linha.
+	^ - Negação.
+	
+
+	Aula 252
+----------------------
+
+ 
+ - RegEx com string e array:
+
+	match():
+
+		O método match() retorna uma correspondência entre uma string com uma expressão regular.
+
+	replace():
+
+		O método replace() retorna uma nova string com algumas ou todas as correspondências de um padrão
+ substituídas por um determinado caractere (ou caracteres).
+
+		O padrão pode ser uma string ou uma RegExp, e a substituição pode ser uma string ou uma função a
+ ser chamada para cada correspondência. 
+		
+		Se o padrão for uma string, apenas a primeira ocorrência será substituída.
+
+		A string original não é modificada.
+
+
+
+
+	Aula 253
+----------------------
+
+
+ - Quantificadores:
+
+	* (opcionais). Zero ou varias vezes, 0 ou n. {0,}
+	+ (obrigatório). Um ou varias vezes, 1 ou n. {1,}
+	? (opcionais). Zero ou uma vez, 0 ou 1. {0,1}	
+	{n,m} (opcional) n, mínimo de vezes. m, máximo de vezes.
+	{a} (obrigatório) a, quantidade específica de vezes.
+
+
+
+
+	Aula 254
+----------------------
+
+
+ - Greedy:
+
+	No modo greedy (por padrão) um caractere quantificado é repetido tantas vezes quanto possível. O mecanismo
+ regexp adiciona à correspondência tantos caracteres quanto possível para .+ e, em seguida, encurta um por um, se o
+ restante do padrão não corresponder.
+
+
+ - Non-greedy (Lazy):
+
+	O modo preguiçoso dos quantificadores é o oposto do modo ganancioso. Significa: “repetir número mínimo de
+ vezes”.
+
+	O Laziness só está habilitado para o quantificador com ?. Outros quantificadores permanecem greedy.
+
+
+
+	Aula 255
+----------------------
+
+- Conjuntos:
+
+	[] Conjunto, tudo (na string ou array) o que está dentro dele.
+	[^] Conjunto, tudo (na string ou array) exceto o que está dentro dele.
+
+
+- Ranges:
+
+	[a-z] Conjunto de letras do alfabeto.
+	[0-9] Conjunto de números.
+
+ - OBS:
+
+	\u pega valores representados em unicode, então o range ficaria:
+
+		[\u0020-\u002F\u003A-\u0040] Conjunto de símbolos.
+	\w é igual a [a-zA-Z0-9]
+	\W é igual a [^a-zA-Z0-9]
+	\d é igual a [0-9]
+	\D é igual a [^0-9]
+	\s é igual a [\u0020] -> acha o espaço em branco
+	\S é igual a [^\u0020] -> acha tudo menos o espaço em branco
+
+
+
+	Aula 256
+----------------------
+
+
+ - Ips:
+	// 250 - 255 25[0-5]
+	// 200 - 249 2[0-4][0-9]
+	// 100 - 199 1\d{2}
+	// 10  - 99  [1-9]\d
+	// 0   - 9   \d
+	const ipRegExp = /((25[0-5]|2[0-4][0-9]|1\d{2}|[1-9]\d|\d)(\.)){3}(25[0-5]|2[0-4][0-9]|1\d{2}|[1-9]\d|\d)/g;
+
+
+	Aula 257
+----------------------
+
+
+	^   -> Começa com (Logo no início da expressão regular)
+	$   -> Termina com (Bem no fim da expressão regular)
+	[^] -> Negação
+flag	m   -> Multiline (Múltiplas Linhas). A flag m.. ela separa cada linha como se tivesse seu proprio comeco e fim.
+
+
+
+	Aula 258
+----------------------
+
+
+ - Retrovisores:
+	
+	Tradução livre de back reference ou referência anterior. Quando se cria grupos.. podemos referencia-los com
+ \1, \2, \3 e etc.. . E esses são os retrovisores, como se fosem variáveis usadas pro regex.
+	
+	Dentro do regex (dentro das barras //) -> \1 \2 ...
+	Fora do regex  (no método .replace())  -> $1 $2...
+
+ - Ex:
+
+	// . qualquer coisa => dot all -> .*
+	// Quebra de linha => cambiarra [\s\S]
+	// Onde \s é espaco e \S é um não espaço
+	const regExp1 = /<(\w+)[\s\S]*?>[\s\S]*?<\/\1>/gi;
+	// criar um grupo mas q n seja salvo para os retrovisores -> (?:)
+
+
+	Aula 259
+----------------------
+
+
+- Lookaround:
+	
+	- Lookahead:
+
+		Positive: Checa se tem algo no final e retorna tudo menos o q foi checado e encontrado.
+
+		Negative: Checa se não tem algo no final e retorna tudo menos o q foi checado e não encontrado.
+
+	- Lookbehind:	
+
+
+		Positive: Checa se tem algo no começo e retorna tudo menos o q foi checado e encontrado.
+
+		Negative: Checa se não tem algo no final e retorna tudo menos o q foi checado e não encontrado.
+
+ - OBS:
+	.* => captura o q  tem a mais
+	.+ => add o q tem a mais
+	
+	// Com o netavive lookbehind eu posso já validar cpfs sem sequencias!
+
+
+	Aula 260
+----------------------
+
+
+ - Ref:
+
+	Site para pesquisar agum regex:
+		
+		regex101.com
+
+
+ - OBS:
+
+	Encontra todas as palavras:
+		const palavrasRegEx = /([\wÀ-ú]+)/g;
+
+	Não números
+		const naoNumerosRegEx = /\D/g;
+
+	Valida IP
+		const ipRegExp = /((25[0-5]|2[0-4][0-9]|1\d{2}|[1-9]\d|\d)(\.)){3}(25[0-5]|2[0-4][0-9]|1\d{2}|[1-9]\d|\d)/g;
+
+	Valida CPF
+		const cpfRegExp = /(?:\d{3}\.){2}\d{3}-\d{2}/g
+
+	Valida telefones
+		const validaTelefone = /^(\(\d{2}\)\s*)?(9\s*)?(\d{4})-(\d{4})$/g
+
+	Validar senhas fortes
+		const validaSenhasFortes = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%\]\)]).{8,}$/g
+
+	##################################
+	# Validar e-mails (use a última) #
+	##################################
+
+		[^\s]+@[^\s]+\.[^\s]+(\w+)* (Hiper Permissiva)
+
+		Essa expressão é bem permissiva, menos que a anterior, 
+		Mas ainda detecta bastante e-mails inválidos
+		[^\s\.]+\.?[^\s\.]+@[^\s]+\.[^\s]+\w+
+
+	Em meus testes a regexp que obteve melhor resultado 
+	(acertando mais válidos e inválidos) 
+	Foi a da linha a seguir:
+		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+		const validaEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
+
+
+
