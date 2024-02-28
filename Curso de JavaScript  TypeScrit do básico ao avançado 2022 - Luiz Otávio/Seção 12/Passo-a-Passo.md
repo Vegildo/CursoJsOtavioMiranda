@@ -78,13 +78,23 @@
         ```
 
 >Obs1: Vídeo ensinando a instalar o VirtualBox Manager: [YouTube](https://www.youtube.com/watch?v=PaDTA4B7K4U)
+
 >Obs2: Vídeo do professor Otávio Miranda ensinando instalar o Ubuntu (64bit) no VirtualBox: [YouTube](https://www.youtube.com/watch?v=Vl6f8_vin9M)
+
 >Obs3: O ip estará na última linha que começa inet e é so a aprte antes do barra "/"
+
 >Obs4: A flag -vvv é para debugar a conexão, ajuda para sabermos onde está o problema.
+
 >Obs5: SSH é um protocolo de segurança de comunicação entre cliente e servidor
+
 >Obs6: Para mais explicações: https://www.youtube.com/watch?v=A9CSSbten_s
->>Obs7: gerando uma chave ssh (ssh-keygen), no caminho padrão (~/.ssh/removemeplease), com a flag -f podemos mudar o nome final do caminho e a parte final (-t rsa -b 4096) é para segurança.
+
+>Obs7: gerando uma chave ssh (ssh-keygen), no caminho padrão (~/.ssh/removemeplease), com a flag -f podemos mudar o nome final do caminho e a parte final (-t rsa -b 4096) é para segurança.
+
 >Obs8: Há mais formas de configuração do arquivo config, dependendo do seu caso. [Using the SSH Config File](https://linuxize.com/post/using-the-ssh-config-file/)   
+
 >Obs9: IMPORTANTE: Deixe o nome como removemeplease é um nome padrão UNIX.  No caso do windows, faz-se necessário cumprir esses passos de edição da config para que o nosso computador identifique a chave com o nome personalizado
+
 >Obs10: Se precisar mudar o nome de um arquivo use: `mv <nome antigo> <nome novo>`. Lembre-se de estar na pasta certa no terminal
+
 >Obs11: Professor liberou alguns arquivos com alguns códigos usados na aula e para nos audar (tem no git junto com esse arquivo). [git](https://github.com/Vegildo/CursoJsOtavioMiranda)
