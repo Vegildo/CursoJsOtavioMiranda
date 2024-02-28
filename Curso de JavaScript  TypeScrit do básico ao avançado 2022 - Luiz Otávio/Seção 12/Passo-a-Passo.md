@@ -1,26 +1,26 @@
-#Seção 12: Linux - Deploy da aplicação e segurança+Chaves SSH
+# Seção 12: Linux - Deploy da aplicação e segurança+Chaves SSH
 
-##Passo a passo:
+## Passo a passo:
         
-1. ###Escolha do servidor - Google Cloud, Digital Ocean, AWS, ou Máquina Virtual 
+1. ### Escolha do servidor - Google Cloud, Digital Ocean, AWS, ou Máquina Virtual 
         
-2. ###Como a escolha foi máquina virtual, nós criamos uma no programa VirtualBox Manager (VM).
+2. ### Como a escolha foi máquina virtual, nós criamos uma no programa VirtualBox Manager (VM).
 
 >Obs1: Vídeo ensinando a instalar o VirtualBox Manager: [YouTube](https://www.youtube.com/watch?v=PaDTA4B7K4U)
 >Obs2: Vídeo do professor Otávio Miranda ensinando instalar o Ubuntu (64bit) no VirtualBox: [YouTube](https://www.youtube.com/watch?v=Vl6f8_vin9M)
 
-3. ###No VirtualBox Manager: 
+3. ### No VirtualBox Manager: 
     - Vá em Settings/Configurações.
     - Vá em Network/Rede.
     - Certifique-se de estar Attached to/Conectado a: Bridged Adapter/ Placa em modo Ponte
     - Certifique-se do nome estar correto ao de sua conexão a internet.
             
-4. ##Na máquina virtual clique: ctrl+t
+4. ## Na máquina virtual clique: ctrl+t
 
-5. ###No terminal confire seu ip digitando: `ip address show` ou `id addr` 
+5. ### No terminal confire seu ip digitando: `ip address show` ou `id addr` 
 >Obs3: O ip estará na última linha que começa inet e é so a aprte antes do barra "/"
 
-6. ###Configurar o servidor ssh na máquina virutal, no terminal digite:
+6. ### Configurar o servidor ssh na máquina virutal, no terminal digite:
     - `sudo apt install ssh`
     - Coloque senha se tiver
     - Coloque S ou Y quando perguntado
@@ -41,7 +41,7 @@
 >Obs5: SSH é um protocolo de segurança de comunicação entre cliente e servidor
 >Obs6: Para mais explicações: https://www.youtube.com/watch?v=A9CSSbten_s    
         
-7. Criando a chave SSH no computador;
+7. ### Criando a chave SSH no computador;
     - No terminal do GitBash, já aberto no passo anterior, digite:
         ```
         ssh-keygen -f ~/.ssh/removemeplease -t rsa -b 4096
@@ -63,7 +63,7 @@
 >Obs8: Há mais formas de configuração do arquivo config, dependendo do seu caso. [Using the SSH Config File](https://linuxize.com/post/using-the-ssh-config-file/)   
 >Obs9: IMPORTANTE: Deixe o nome como removemeplease é um nome padrão UNIX.  No caso do windows, faz-se necessário cumprir esses passos de edição da config para que o nosso computador identifique a chave com o nome personalizado
        
-8. Colocando a public key no servidor (máquina virtual):
+8. ### Colocando a public key no servidor (máquina virtual):
     - Vá no caminho gerado e copie a chave .pub
     - No terminal do servidor digite:
         - `nano ~/.ssh/authorized_keys`
@@ -78,13 +78,13 @@ sudo systemctl restart ssh
 ```
     - Para restartar o ssh no servidor
 
-9. Acesse o servidor pela sua máquina.
+9. ### Acesse o servidor pela sua máquina.
     - Na sua máquina, mais precisamente no gitbash aberto anteriormente, digite:
     ```
         ssh -vvv <usuario-servidor>@<ip-servidor>
     ```
 
-10. Para acessos posteriores, SEMPRE verefiue o ip do servidor com:
+10. ### Para acessos posteriores, SEMPRE verefiue o ip do servidor com:
     - `ip addr`
     - Se o mesmo tiver mudado, atualize a config na pasta .ssh do seu computador
     - Depois digite:
