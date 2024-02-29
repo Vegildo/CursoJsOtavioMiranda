@@ -51,7 +51,7 @@
             ```
 
 8. ### Colocando a public key no servidor (máquina virtual):
-    - Vá no caminho gerado e copie a chave .pub
+    - Vá no caminho gerado e copie a chave rsa.pub (Se cirou uma chave privada, vá no nome dela .pub)
     - No terminal do servidor digite:
         - `nano ~/.ssh/authorized_keys`
         - Cole a chave 
